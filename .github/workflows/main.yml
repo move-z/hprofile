@@ -18,10 +18,9 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - uses: warchant/setup-sonar-scanner@v7   
-
       - name: SonarQube Scan
-        run: mvn sonar:sonar
+        run: mvn sonar:sonar -Dsonar.organization=$SONAR_ORGANIZATION
         env:
           SONAR_HOST_URL: ${{ vars.SONAR_URL }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_ORGANIZATION: ${{ vars.SONAR_ORGANIZATION }}
