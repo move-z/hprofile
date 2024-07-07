@@ -22,10 +22,10 @@ jobs:
 
       - name: SonarQube Scan
         run: sonar-scanner
-           -Dsonar.host.url=$SONAR_URL
+           -Dsonar.host.url=${{ vars.SONAR_URL }}
            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-           -Dsonar.organization=$SONAR_ORGANIZATION
-           -Dsonar.projectKey=$SONAR_PROJECT_KEY
+           -Dsonar.organization=${{ vars.SONAR_ORGANIZATION }}
+           -Dsonar.projectKey=${{ vars.SONAR_PROJECT_KEY }}
            -Dsonar.sources=src/
            -Dsonar.junit.reportsPath=target/surefire-reports/
            -Dsonar.jacoco.reportsPath=target/jacoco.exec
